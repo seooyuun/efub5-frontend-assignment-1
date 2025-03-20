@@ -1,0 +1,250 @@
+html,
+body {
+  scroll-behavior: smooth;
+  overflow-anchor: none; /*스크롤 앵커링 방지*/
+}
+#site-title {
+  font-size: 40px;
+}
+nav {
+  background-color: #9fc5e8;
+  padding: 10px;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+nav ul li {
+  margin: 0 10px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.nav-item:hover {
+  color: #2a4d69;
+  font-weight: 300;
+}
+.title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+}
+.about-content .left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.about-content .right {
+  width: 50%;
+  display: flex;
+  flex-direction: column; /*위->아래*/
+  justify-content: center;
+}
+.about-content .right h1 {
+  font-size: 40px;
+  margin: 0;
+}
+.about-content .right .introduce {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+#univ {
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#major {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#major-details {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#birthday {
+  font-size: 20px;
+}
+.site {
+  display: flex;
+}
+.blog,
+.github {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-top: 0;
+}
+.about-content img {
+  width: 80%;
+  padding: 10px;
+}
+.name-highlight:hover {
+  color: #4b86b4;
+  text-decoration: underline;
+}
+.blog a,
+.github a {
+  text-decoration: none; /* 밑줄 제거 */
+  font-weight: 100;
+  color: white; /* 글씨 색 흰색 */
+  background-color: #adcbe3; /* 배경색 파란색 */
+  padding: 5px 30px; /* 내부 여백 */
+  border-radius: 5px; /* 모서리를 둥글게 */
+  display: inline-block; /* 크기 조절 가능하게 설정 */
+}
+.blog a:hover,
+.github a:hover {
+  background-color: #4b86b4;
+  text-decoration: underline; /* 밑줄 추가 */
+}
+.favorite-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.favorite-content p {
+  margin: 5px;
+}
+
+.favorite-content .first-favorite,
+.favorite-content .second-favorite,
+.favorite-content .third-favorite {
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+  margin: 15px;
+  background-color: #e7eff6;
+  border-radius: 20px;
+}
+.favorite-content .first-favorite:hover,
+.favorite-content .second-favorite:hover,
+.favorite-content .third-favorite:hover {
+  background-color: #adcbe3;
+}
+.favorite-images {
+  display: flex;
+  justify-content: center;
+}
+.first-favorite img,
+.second-favorite img,
+.third-favorite img {
+  width: 90%;
+  gap: 10px;
+}
+.first-favorite-details,
+.second-favorite-details,
+.third-favorite-details {
+  text-align: center;
+}
+.stacks-content {
+  display: flex;
+}
+.stacks-content .left {
+  width: 50%;
+  padding: 15px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.stacks-content .left p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+.stacks-content .right {
+  width: 50%;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.progress-container {
+  width: 90%;
+  height: 80%;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.progress-container > div {
+  display: flex;
+  align-items: center;
+}
+.progress-container p {
+  margin-right: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 50px;
+}
+.progressbar {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-C,
+.progress-bar-CSS,
+.progress-bar-HTML,
+.progress-bar-Python {
+  height: 20px;
+  background-color: #adcbe3;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 20px;
+}
+.progress-bar-C {
+  width: 60%;
+}
+.progress-bar-Python {
+  width: 60%;
+}
+.progress-bar-HTML {
+  width: 50%;
+}
+.progress-bar-CSS {
+  width: 40%;
+}
+.progress-bar-C:hover,
+.progress-bar-CSS:hover,
+.progress-bar-HTML:hover,
+.progress-bar-Python:hover {
+  background-color: #2a4d69;
+}
+
+footer {
+  background-color: #2a4d69;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer p {
+  color: #e7eff6;
+  font-size: 20px;
+  margin: 10px;
+}
+footer a {
+  text-decoration: none;
+  color: #e7eff6;
+}
+.email-highlight:hover {
+  color: #adcbe3;
+  font-weight: 500;
+}
