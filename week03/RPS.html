@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK-PAPER-SCISSORS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div>
+      <h1>ROCK-PAPER-SCISSORS</h1>
+      <div id="score-board">
+        <p>
+          <span id="human-score">0</span> : <span id="computer-score">0</span>
+        </p>
+      </div>
+      <p id="result">가위, 바위, 보 중 하나를 선택하세요. 게임이 시작됩니다.</p>
+      <div id="game">
+        <div class="component">
+          <div class="human-component">
+            <p>인간</p>
+            <div>
+              <img
+                id="human-choice"
+                alt="human-choice-img"
+                src="images/clear.png"
+              />
+            </div>
+          </div>
+          <div class="computer-component">
+            <p>컴퓨터</p>
+            <div>
+              <img
+                id="computer-choice"
+                alt="computer-choice-img"
+                src="images/clear.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div id="button">
+          <button id="scissors">가위</button>
+          <button id="rock">바위</button>
+          <button id="paper">보</button>
+        </div>
+        <div id="reset-button">
+          <button id="reset">초기화</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <!--자바스크립트 연결-->
+  </body>
+</html>
