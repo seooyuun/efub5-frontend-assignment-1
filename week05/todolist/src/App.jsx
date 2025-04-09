@@ -6,7 +6,6 @@ import TodoHead from "./components/TodoHead";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
 import backgroundImg from "./images/dot-image.jpg";
-import useToday from "./hooks/useToday";
 
 const GlobalStyle = createGlobalStyle`
   body {
