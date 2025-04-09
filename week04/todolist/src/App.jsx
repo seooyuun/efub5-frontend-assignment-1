@@ -41,7 +41,7 @@ function App() {
     const savedTodos = localStorage.getItem(STORAGE_KEY);
     return savedTodos ? JSON.parse(savedTodos) : TODO_LIST;
   }); // todos: 할 일을 저장하는 변수
-  // localStorage에 저장된 투두리스트가 있으면 localStorage를 불러오고, 없으면 TODO_LIST 불러오기기
+  // localStorage에 저장된 투두리스트가 있으면 localStorage를 불러오고, 없으면 TODO_LIST 불러오기
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
