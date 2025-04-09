@@ -114,7 +114,7 @@ function TodoCreate({ todos, setTodos }) {
       const orderA = CATEGORY_ORDER[a.category] || 99;
       const orderB = CATEGORY_ORDER[b.category] || 99;
       return orderA - orderB || a.id - b.id;
-    }); // 공부 > 일상 > 학교 순으로 배치하도록
+    });
 
     setTodos(nextTodos); // 정렬
     setText(""); // 입력창 비우기

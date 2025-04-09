@@ -54,7 +54,7 @@ const Completed = styled.div`
 `;
 
 function TodoHead({ undoneTasksResult, lastCompletedResult }) {
-  const { dateString, dayName } = useToday();
+  const { dateString, dayName } = useToday(); // useToday Hook 사용해서 날짜 관련 정보 가져오기
 
   return (
     <TodoHeadBlock>

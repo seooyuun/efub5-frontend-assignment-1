@@ -44,8 +44,6 @@ function App() {
   }); // todos: 할 일을 저장하는 변수
   // localStorage에 저장된 투두리스트가 있으면 localStorage를 불러오고, 없으면 TODO_LIST 불러오기
 
-  const { dateString, dayName } = useToday(); // useToday Hook 사용해서 날짜 관련 정보 가져오기
-
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
