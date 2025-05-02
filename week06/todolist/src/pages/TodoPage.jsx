@@ -6,6 +6,7 @@ import TodoList from "../components/TodoList";
 import TodoCreate from "../components/TodoCreate";
 
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const TODO_LIST = [
   { id: 1, text: "자바스크립트 공부하기", done: false, completeTime: null },
@@ -37,25 +38,34 @@ function TodoPage() {
       .sort((a, b) => new Date(b.completeTime) - new Date(a.completeTime))[0];
   }, [todos]);
 
+  const Button = styled.button`
+    background-color: #bddde4;
+    border: none;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    padding: 10px 24px;
+    font-family: "DungGeunMo";
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+
+    &:hover {
+      background-color: #9ec6f3;
+    }
+  `;
+
   return (
     <>
-      <div style={{ textAlign: "center", marginTop: "40px" }}>
-        <button
-          style={{
-            backgroundColor: "#bddde4",
-            border: "none",
-            borderRadius: "8px",
-            padding: "10px 20px",
-            fontFamily: "DungGeunMo",
-            fontSize: "16px",
-            color: "white",
-            cursor: "pointer",
-          }}
-          onClick={() => navigate("/playlist")}
-        >
-          🎵 플레이리스트 보기
-        </button>
-      </div>
+      <Button onClick={() => navigate("/playlist")}>
+        🎵 플레이리스트 보기
+      </Button>
       <TodoTemplate>
         <TodoHead
           undoneTasksResult={undoneTasksResult}
