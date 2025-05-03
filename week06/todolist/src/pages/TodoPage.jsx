@@ -63,9 +63,7 @@ function TodoPage() {
 
   return (
     <>
-      <Button onClick={() => navigate("/playlist")}>
-        🎵 플레이리스트 보기
-      </Button>
+      <Button onClick={() => navigate("/playlist")}>🎵 플레이리스트</Button>
       <TodoTemplate>
         <TodoHead
           undoneTasksResult={undoneTasksResult}

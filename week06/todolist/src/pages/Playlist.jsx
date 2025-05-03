@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TodoTemplate from "../components/TodoTemplate";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,6 @@ const Button = styled.button`
   border-bottom-right-radius: 0;
 
   padding: 10px 24px;
-  font-family: "DungGeunMo";
   font-size: 16px;
   color: white;
   cursor: pointer;
@@ -26,36 +25,94 @@ const Button = styled.button`
   }
 `;
 
+const PlaylistHeadBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #495057;
+  }
+
+  height: 144px;
+  padding: 48px 32px 24px 32px;
+  border-bottom: 1px solid #e9ecef;
+`;
+
+const TrackButton = styled.button`
+  background-color: #f0f4f8;
+  border: 2px solid #bddde4;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #495057;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #bddde4;
+    color: white;
+  }
+`;
+
 function Playlist() {
   const navigate = useNavigate();
+  const [embedUrl, setEmbedUrl] = useState(null);
 
   return (
     <>
       <Button onClick={() => navigate("/")}>⬅️ 돌아가기</Button>
       <TodoTemplate>
-        <div style={{ padding: "20px", textAlign: "center" }}>
-          <h2>🎵 나의 플레이리스트</h2>
-          <ul>
-            <li>
-              <a
-                href="https://www.youtube.com/watch?v=DWcJFNfaw9c"
-                target="_blank"
-                rel="noreferrer"
-              >
-                집중용 Lo-fi 음악
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/watch?v=hHW1oY26kxQ"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Chill 공부 브금
-              </a>
-            </li>
-          </ul>
-        </div>
+        <PlaylistHeadBlock>
+          <h1>My Playlist</h1>
+          <div style={{ marginTop: "25px" }}>
+            <TrackButton
+              onClick={() =>
+                setEmbedUrl(
+                  "https://embed.music.apple.com/kr/playlist/pl.u-9N9LXPNCx8jpE9e"
+                )
+              }
+            >
+              🎵 Apple Music 플레이리스트
+            </TrackButton>
+            <TrackButton
+              onClick={() =>
+                setEmbedUrl(
+                  "https://embed.music.apple.com/kr/playlist/pl.u-d2b05dVTMZlqz0A"
+                )
+              }
+            >
+              🎵 Apple Music 플레이리스트
+            </TrackButton>
+          </div>
+        </PlaylistHeadBlock>
+
+        {embedUrl && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "15px",
+            }}
+          >
+            <iframe
+              allow="autoplay *; encrypted-media *;"
+              height="450"
+              style={{
+                width: "100%",
+                maxWidth: "660px",
+                overflow: "hidden",
+                background: "transparent",
+              }}
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+              src={embedUrl}
+              title="Apple Music"
+            ></iframe>
+          </div>
+        )}
       </TodoTemplate>
     </>
   );
