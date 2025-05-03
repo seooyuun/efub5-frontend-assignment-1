@@ -9,8 +9,20 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const TODO_LIST = [
-  { id: 1, text: "자바스크립트 공부하기", done: false, completeTime: null },
-  { id: 2, text: "EFUB 가기", done: false, completeTime: null },
+  {
+    id: 1,
+    text: "자바스크립트 공부하기",
+    category: "공부",
+    done: false,
+    completeTime: null,
+  },
+  {
+    id: 2,
+    text: "EFUB 가기",
+    category: "학교",
+    done: false,
+    completeTime: null,
+  },
 ];
 
 const STORAGE_KEY = "todos";
@@ -64,6 +76,7 @@ function TodoPage() {
   return (
     <>
       <Button onClick={() => navigate("/playlist")}>🎵 플레이리스트</Button>
+      <Button onClick={() => navigate("/gallery")}>🖼️ 갤러리</Button>
       <TodoTemplate>
         <TodoHead
           undoneTasksResult={undoneTasksResult}

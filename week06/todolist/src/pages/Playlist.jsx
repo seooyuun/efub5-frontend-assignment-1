@@ -65,6 +65,7 @@ function Playlist() {
   return (
     <>
       <Button onClick={() => navigate("/")}>⬅️ 돌아가기</Button>
+      <Button onClick={() => navigate("/gallery")}>🖼️ 갤러리</Button>
       <TodoTemplate>
         <PlaylistHeadBlock>
           <h1>My Playlist</h1>
@@ -76,7 +77,7 @@ function Playlist() {
                 )
               }
             >
-              🎵 Apple Music 플레이리스트
+              🎵 I LOVE BAND
             </TrackButton>
             <TrackButton
               onClick={() =>
@@ -85,7 +86,7 @@ function Playlist() {
                 )
               }
             >
-              🎵 Apple Music 플레이리스트
+              🎵 I LOVE J-POP
             </TrackButton>
           </div>
         </PlaylistHeadBlock>
