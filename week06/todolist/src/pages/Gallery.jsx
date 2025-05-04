@@ -17,11 +17,10 @@ const Button = styled.button`
   cursor: pointer;
 
   margin: 0 auto;
-  z-index: 1;
   position: relative;
 
   &:hover {
-    background-color: #9ec6f3;
+    background-color: #d5e9ee;
   }
 `;
 

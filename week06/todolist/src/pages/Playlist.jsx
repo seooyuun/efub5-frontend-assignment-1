@@ -17,11 +17,10 @@ const Button = styled.button`
   cursor: pointer;
 
   margin: 0 auto;
-  z-index: 1;
   position: relative;
 
   &:hover {
-    background-color: #9ec6f3;
+    background-color: #d5e9ee;
   }
 `;
 
@@ -91,6 +90,14 @@ function Playlist() {
           </div>
         </PlaylistHeadBlock>
 
+        {!embedUrl && (
+          <p
+            style={{ textAlign: "center", color: "#495057", marginTop: "20px" }}
+          >
+            플레이리스트 버튼을 눌러보세요 🎶
+          </p>
+        )}
+
         {embedUrl && (
           <div
             style={{
@@ -110,7 +117,7 @@ function Playlist() {
               }}
               sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
               src={embedUrl}
-              title="Apple Music"
+              title="Apple Music Playlist"
             ></iframe>
           </div>
         )}

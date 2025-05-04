@@ -1,4 +1,3 @@
-// pages/TodoPage.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import TodoTemplate from "../components/TodoTemplate";
 import TodoHead from "../components/TodoHead";
@@ -65,11 +64,10 @@ function TodoPage() {
     cursor: pointer;
 
     margin: 0 auto;
-    z-index: 1;
     position: relative;
 
     &:hover {
-      background-color: #9ec6f3;
+      background-color: #d5e9ee;
     }
   `;
 
