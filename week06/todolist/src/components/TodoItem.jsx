@@ -43,7 +43,7 @@ const CheckCircle = styled.div`
   margin-right: 20px;
   cursor: pointer;
   ${(props) =>
-    props.done &&
+    props.$done &&
     css`
       border: 1px solid #9ec6f3;
       color: #9ec6f3;
@@ -61,7 +61,7 @@ const Text = styled.div`
   font-size: 20px;
   color: #495057;
   ${(props) =>
-    props.done &&
+    props.$done &&
     css`
       color: #9ec6f3;
       text-decoration: line-through;
@@ -107,11 +107,11 @@ function TodoItem({ id, done, text, setTodos, completeTime, category }) {
 
   return (
     <TodoItemBlock>
-      <CheckCircle done={done} onClick={onToggle}>
+      <CheckCircle $done={done} onClick={onToggle}>
         {done && <RandomIcon />}
       </CheckCircle>
       <Category>{category}📌</Category>
-      <Text done={done}>{text}</Text>
+      <Text $done={done}>{text}</Text>
       {done && completeTime !== null && completeTime !== undefined && (
         <Completed>
           {completeTime

@@ -58,7 +58,6 @@ function TodoPage() {
     border-bottom-right-radius: 0;
 
     padding: 10px 24px;
-    font-family: "DungGeunMo";
     font-size: 16px;
     color: white;
     cursor: pointer;

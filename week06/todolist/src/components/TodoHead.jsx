@@ -49,7 +49,7 @@ const TasksLeft = styled.div`
 `;
 
 const Completed = styled.div`
-  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+  visibility: ${(props) => (props.$visible ? "visible" : "hidden")};
   height: 15px;
 `;
 
@@ -64,7 +64,7 @@ function TodoHead({ undoneTasksResult, lastCompletedResult }) {
         <div className="day">{dayName}</div>
       </DateDayBlock>
       <TasksLeft>TASKS LEFT : {undoneTasksResult}</TasksLeft>
-      <Completed visible={!!lastCompletedResult}>
+      <Completed $visible={!!lastCompletedResult}>
         {lastCompletedResult
           ? `Last Completion Time: ${new Date(
               lastCompletedResult.completeTime

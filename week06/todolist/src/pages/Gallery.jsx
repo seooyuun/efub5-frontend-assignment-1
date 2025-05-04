@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TodoTemplate from "../components/TodoTemplate";
 import { useNavigate } from "react-router-dom";
 
+// 페이지 이동 버튼
 const Button = styled.button`
   background-color: #bddde4;
   border: none;
@@ -24,6 +25,7 @@ const Button = styled.button`
   }
 `;
 
+// 갤러리 페이지 헤더
 const GalleryHeadBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,6 +43,7 @@ const GalleryHeadBlock = styled.div`
   border-bottom: 1px solid #e9ecef;
 `;
 
+// 이미지 그리드를 3열로 설정, 이미지 카드의 스타일과 애니메이션 설정
 const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,6 +59,7 @@ const ImageCard = styled.img`
   }
 `;
 
+// 갤러리 새로고침 버튼
 const GalleryButton = styled.button`
   background-color: #f0f4f8;
   border: 2px solid #bddde4;
@@ -84,6 +88,7 @@ const images = [
   "/gallery-9.jpg",
 ];
 
+// 이미지를 랜덤으로 섞은 후 6개 선택
 const shuffleImages = () => {
   const shuffle = [...images].sort(() => Math.random() - 0.5);
   return shuffle.slice(0, 6);
@@ -99,8 +104,10 @@ function Gallery() {
 
   return (
     <>
+      {/* 상단 네비게이션 버튼 */}
       <Button onClick={() => navigate("/")}>⬅️ 돌아가기</Button>
       <Button onClick={() => navigate("/playlist")}>🎵 플레이리스트</Button>
+      {/* 투두리스트 템플릿과 동일하도록 */}
       <TodoTemplate>
         <GalleryHeadBlock>
           <h1>My Gallery</h1>

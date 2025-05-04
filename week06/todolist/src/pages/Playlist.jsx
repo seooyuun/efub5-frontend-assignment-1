@@ -3,6 +3,7 @@ import TodoTemplate from "../components/TodoTemplate";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
+// 페이지 이동 버튼
 const Button = styled.button`
   background-color: #bddde4;
   border: none;
@@ -24,6 +25,7 @@ const Button = styled.button`
   }
 `;
 
+// 플레이리스트 페이지 헤더
 const PlaylistHeadBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,6 +43,7 @@ const PlaylistHeadBlock = styled.div`
   border-bottom: 1px solid #e9ecef;
 `;
 
+// 플레이리스트 버튼
 const TrackButton = styled.button`
   background-color: #f0f4f8;
   border: 2px solid #bddde4;
@@ -63,12 +66,15 @@ function Playlist() {
 
   return (
     <>
+      {/* 상단 네비게이션 버튼 */}
       <Button onClick={() => navigate("/")}>⬅️ 돌아가기</Button>
       <Button onClick={() => navigate("/gallery")}>🖼️ 갤러리</Button>
+      {/* 투두리스트 템플릿과 동일하도록 */}
       <TodoTemplate>
         <PlaylistHeadBlock>
           <h1>My Playlist</h1>
           <div style={{ marginTop: "25px" }}>
+            {/* Apple Music embed URL을 설정 */}
             <TrackButton
               onClick={() =>
                 setEmbedUrl(
