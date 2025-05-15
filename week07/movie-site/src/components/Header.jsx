@@ -17,30 +17,37 @@ const Logo = styled.img`
 
 const Sort = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 12px;
   padding: 5px 10px;
   font-size: 1rem;
 `;
 
 const SortBtn = styled.button`
+  @font-face {
+    font-family: "Cafe24ClassicType-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "Cafe24ClassicType-Regular";
   background-color: ${({ active }) => (active ? "#ff0558" : "#666")};
-  color: #fff;
+  color: #ffffff;
   border: none;
-  padding: 6px 14px;
+  padding: 6px 15px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
 
   &:hover {
-    background-color: ${({ active }) => (active ? "#ff0558" : "#888")};
+    background-color: ${({ active }) => "#ff0558"};
   }
 `;
 
 const sortOptions = [
-  { label: "인기순", value: "download_count" },
-  { label: "제목순", value: "title" },
-  { label: "연도순", value: "year" },
-  { label: "평점순", value: "rating" },
+  { label: "popularity", value: "download_count" },
+  { label: "title", value: "title" },
+  { label: "year", value: "year" },
+  { label: "rating", value: "rating" },
 ];
 
 function Header({ sortBy, setSortBy }) {

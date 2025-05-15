@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Card = styled.div`
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -34,17 +34,6 @@ const Overlay = styled.div`
   transition: opacity 0.3s ease-in-out;
 `;
 
-// 카드 전체에 호버 시 오버레이가 나타남
-const HoverCard = styled.div`
-  position: relative;
-  width: 200px;
-  height: 300px;
-
-  &:hover ${Overlay} {
-    opacity: 1;
-  }
-`;
-
 const Title = styled.h3`
   text-align: center;
   font-size: 1rem;
@@ -54,6 +43,17 @@ const Title = styled.h3`
 const Year = styled.p`
   font-size: 0.9rem;
   margin: 5px 0 0 0;
+`;
+
+// 카드 전체에 호버 시 오버레이가 나타남
+const HoverCard = styled.div`
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  position: relative;
+
+  &:hover ${Overlay} {
+    opacity: 1;
+  }
 `;
 
 function MovieCard({ movie }) {
