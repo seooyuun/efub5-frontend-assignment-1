@@ -2,24 +2,28 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  height: 80px;
+  padding: 8px;
+  background-color: #7f7f7f;
+  color: #ffffff;
+  height: 70px;
 `;
 
 const Logo = styled.img`
-  max-height: 90%;
+  max-height: 100%;
 `;
 
 const Sort = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 8px;
   padding: 5px 10px;
-  font-size: 1rem;
 `;
 
 const SortBtn = styled.button`
@@ -31,15 +35,15 @@ const SortBtn = styled.button`
     font-style: normal;
   }
   font-family: "Cafe24ClassicType-Regular";
-  background-color: ${({ active }) => (active ? "#ff0558" : "#666")};
-  color: #ffffff;
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: ${({ active }) => (active ? "#ff0558" : "#fff")};
   border: none;
   padding: 6px 15px;
-  border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ active }) => "#ff0558"};
+    color: ${({ active }) => "#ff0558"};
   }
 `;
 

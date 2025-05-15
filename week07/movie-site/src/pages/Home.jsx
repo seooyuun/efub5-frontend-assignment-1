@@ -4,6 +4,10 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 
+const Page = styled.div`
+  padding-top: 70px;
+`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -23,7 +27,7 @@ function Home() {
         });
         setMovies(res.data.data.movies);
       } catch (error) {
-        console.error("영화 데이터를 불러오는 중 오류 발생:", error);
+        console.error("오류 발생:", error);
       }
     };
     fetchMovies();
@@ -32,11 +36,13 @@ function Home() {
   return (
     <>
       <Header sortBy={sortBy} setSortBy={setSortBy} />
-      <Grid>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Grid>
+      <Page>
+        <Grid>
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </Grid>
+      </Page>
     </>
   );
 }

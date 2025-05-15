@@ -10,7 +10,7 @@ const Container = styled.div`
   width: 80%;
   padding: 20px;
   gap: 40px;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -22,6 +22,14 @@ const Poster = styled.img`
 `;
 
 const BackBtn = styled.button`
+  @font-face {
+    font-family: "Cafe24ClassicType-Regular";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  font-family: "Cafe24ClassicType-Regular";
   position: absolute;
   top: 20px;
   left: 20px;
@@ -44,7 +52,7 @@ function MovieInfo() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchMovie = async () => {
+    async function fetchMovie() {
       try {
         const res = await axios.get(
           "https://yts.mx/api/v2/movie_details.json",
@@ -56,7 +64,7 @@ function MovieInfo() {
       } catch (error) {
         console.error("영화 상세 정보를 불러오는 중 오류 발생:", error);
       }
-    };
+    }
     fetchMovie();
   }, [id]);
 

@@ -31,21 +31,20 @@ const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 `;
 
 const Title = styled.h3`
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0;
 `;
 
 const Year = styled.p`
   font-size: 0.9rem;
-  margin: 5px 0 0 0;
+  margin: 8px 0 0 0;
 `;
 
-// 카드 전체에 호버 시 오버레이가 나타남
 const HoverCard = styled.div`
   width: 100%;
   aspect-ratio: 2 / 3;
