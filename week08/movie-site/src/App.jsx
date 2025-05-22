@@ -7,11 +7,13 @@ import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
 
 const lightTheme = {
+  hdbg: "#d3d3d3",
   bg: "#f9f9f9",
   text: "#111",
 };
 
 const darkTheme = {
+  hdbg: "#7f7f7f",
   bg: "#111",
   text: "#f9f9f9",
 };

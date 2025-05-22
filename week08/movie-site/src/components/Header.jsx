@@ -13,7 +13,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  background-color: #7f7f7f;
+  background-color: ${({ theme }) => theme.hdbg};
   color: #ffffff;
   height: 70px;
 `;
