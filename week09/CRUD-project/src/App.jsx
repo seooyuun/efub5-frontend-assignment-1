@@ -5,6 +5,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import MemberInfo from "./components/members/MemberInfo";
 import SignUp from "./pages/SignUp";
 import StartScreen from "./pages/StartScreen";
+import EditProfileForm from "./components/members/EditProfileForm";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<StartScreen />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/members/:memberId" element={<MemberInfo />} />
+        <Route path="/members/:memberId/edit" element={<EditProfileForm />} />
       </Routes>
     </Router>
   );
