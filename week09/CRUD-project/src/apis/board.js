@@ -7,7 +7,7 @@ export const createBoard = (data) => {
 
 // 게시판 단건 조회
 export const getBoard = (boardId) => {
-  return axiosInstance.get(`/boards/${boardId}`);
+  return axiosInstance.get(`/boards/${boardId}`).then((res) => res.data);
 };
 
 // 게시판 수정

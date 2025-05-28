@@ -1,8 +1,9 @@
 import axiosInstance from "./axiosInstance";
 
 // 게시글 작성
-export const createPost = (data) => {
-  return axiosInstance.post("/posts", data);
+export const createPost = async (postData) => {
+  const res = await axiosInstance.post("/posts", postData);
+  return res.data;
 };
 
 // 게시글 전체 목록 조회

@@ -8,6 +8,8 @@ import StartScreen from "./pages/StartScreen";
 import EditProfileForm from "./components/members/EditProfileForm";
 import Home from "./pages/Home";
 import Board from "./pages/Board";
+import BoardMain from "./pages/BoardMain";
+import BoardPosts from "./pages/BoardPosts";
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/members/:memberId/edit" element={<EditProfileForm />} />
         <Route path="/home" element={<Home />} />
         <Route path="/boards" element={<Board />} />
+        <Route path="/boards/:boardId" element={<BoardMain />} />
+        <Route path="/boards/:boardId/posts" element={<BoardPosts />} />
       </Routes>
     </Router>
   );

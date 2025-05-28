@@ -12,7 +12,9 @@ export const getMember = (memberId) => {
 
 // 회원 프로필 수정
 export const updateProfile = (memberId, nickname) => {
-  return axiosInstance.patch(`/members/profile/${memberId}`, { nickname });
+  return axiosInstance.patch(`/members/profile/${memberId}`, {
+    nickname: nickname,
+  });
 };
 
 // 회원 탈퇴

@@ -81,8 +81,10 @@ export default function SignUpForm() {
     try {
       const res = await signUp(formData);
       const memberId = res.data.memberId;
+      const nickname = res.data.nickname;
 
       localStorage.setItem("memberId", memberId);
+      localStorage.setItem("nickname", nickname);
 
       // 바로 홈으로 이동
       navigate("/home");

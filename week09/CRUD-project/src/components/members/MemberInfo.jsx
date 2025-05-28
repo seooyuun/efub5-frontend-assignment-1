@@ -27,6 +27,7 @@ const ButtonGroup = styled.div`
 `;
 
 const Button = styled.button`
+  width: 100%;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border: none;
@@ -104,10 +105,10 @@ export default function MemberInfo() {
 
       <ButtonGroup>
         <Button variant="edit" onClick={handleEdit}>
-          ✏️ 프로필 수정
+          프로필 수정
         </Button>
         <Button variant="delete" onClick={handleDelete}>
-          🗑 회원 탈퇴
+          회원 탈퇴
         </Button>
       </ButtonGroup>
       <Button
@@ -115,7 +116,7 @@ export default function MemberInfo() {
         style={{ marginTop: "2rem", backgroundColor: "#4caf50" }}
         onClick={handleGoHome}
       >
-        🏠 홈으로 가기
+        홈으로 가기
       </Button>
     </Container>
   );

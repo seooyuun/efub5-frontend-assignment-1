@@ -76,8 +76,11 @@ export default function EditProfileForm() {
     e.preventDefault();
     try {
       await updateProfile(memberId, nickname);
+      localStorage.setItem("nickname", nickname);
+
       setMessage("✅ 프로필 수정 완료!");
       setIsSuccess(true);
+
       setTimeout(() => {
         navigate(`/members/${memberId}`);
       }, 1000);
