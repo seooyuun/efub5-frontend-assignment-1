@@ -1,0 +1,161 @@
+import React, { useState } from "react";
+import axiosInstance from "../../libs/axiosInstance";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+const Container = styled.main`
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+`;
+
+const Title = styled.h2`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  margin-bottom: 1rem;
+  font-weight: bold;
+`;
+
+const Input = styled.input`
+  margin-top: 0.4rem;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+`;
+
+const Button = styled.button`
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #3c82f6;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #265ddc;
+  }
+`;
+
+const Message = styled.p`
+  margin-top: 1rem;
+  font-weight: bold;
+  color: ${({ $success }) => ($success ? "green" : "red")};
+`;
+
+export default function SignUpForm() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    nickname: "",
+    university: "",
+    studentId: "",
+  });
+
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axiosInstance.post("/members", formData);
+      const memberId = res.data.memberId; // ✅ 응답에서 ID 가져오기
+      setMessage("✅ 회원가입 성공!");
+      setIsSuccess(true);
+
+      navigate(`/members/${memberId}`);
+    } catch (err) {
+      setMessage("❌ 회원가입 실패!");
+      setIsSuccess(false);
+      console.error(err);
+    }
+  };
+
+  return (
+    <Container>
+      <Title>회원가입</Title>
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          이메일
+          <Input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </Label>
+
+        <Label>
+          비밀번호
+          <Input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </Label>
+
+        <Label>
+          닉네임
+          <Input
+            type="text"
+            name="nickname"
+            value={formData.nickname}
+            onChange={handleChange}
+            required
+          />
+        </Label>
+
+        <Label>
+          대학교
+          <Input
+            type="text"
+            name="university"
+            value={formData.university}
+            onChange={handleChange}
+            required
+          />
+        </Label>
+
+        <Label>
+          학번
+          <Input
+            type="text"
+            name="studentId"
+            value={formData.studentId}
+            onChange={handleChange}
+            required
+          />
+        </Label>
+
+        <Button type="submit">회원가입</Button>
+      </Form>
+
+      {message && <Message $success={isSuccess}>{message}</Message>}
+    </Container>
+  );
+}
