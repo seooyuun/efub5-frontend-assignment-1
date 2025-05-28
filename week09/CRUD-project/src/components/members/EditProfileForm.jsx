@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axiosInstance from "../../libs/axiosInstance";
 import styled from "styled-components";
+import { getMember, updateProfile } from "../../apis/members";
 
 const FormContainer = styled.div`
   max-width: 600px;
@@ -62,7 +62,7 @@ export default function EditProfileForm() {
   useEffect(() => {
     const fetchMember = async () => {
       try {
-        const res = await axiosInstance.get(`/members/${memberId}`);
+        const res = await getMember(memberId);
         setNickname(res.data.nickname);
       } catch (err) {
         setMessage("❌ 회원 정보 불러오기 실패");
@@ -75,9 +75,7 @@ export default function EditProfileForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosInstance.patch(`/members/profile/${memberId}`, {
-        nickname: nickname,
-      });
+      await updateProfile(memberId, nickname);
       setMessage("✅ 프로필 수정 완료!");
       setIsSuccess(true);
       setTimeout(() => {
