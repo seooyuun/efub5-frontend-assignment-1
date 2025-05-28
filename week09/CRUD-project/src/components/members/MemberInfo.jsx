@@ -85,6 +85,10 @@ export default function MemberInfo() {
     }
   };
 
+  const handleGoHome = () => {
+    navigate("/home");
+  };
+
   if (error) return <Container>{error}</Container>;
   if (!member) return <Container>⏳ 로딩 중...</Container>;
 
@@ -106,6 +110,13 @@ export default function MemberInfo() {
           🗑 회원 탈퇴
         </Button>
       </ButtonGroup>
+      <Button
+        variant="edit"
+        style={{ marginTop: "2rem", backgroundColor: "#4caf50" }}
+        onClick={handleGoHome}
+      >
+        🏠 홈으로 가기
+      </Button>
     </Container>
   );
 }

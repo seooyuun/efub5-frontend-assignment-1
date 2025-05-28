@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { getMember, updateProfile } from "../../apis/members";
+import { getMember, updateProfile } from "../../apis/member";
 
 const FormContainer = styled.div`
   max-width: 600px;

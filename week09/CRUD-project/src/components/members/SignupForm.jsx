@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axiosInstance from "../../apis/axiosInstance";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { signUp } from "../../apis/member";
 
 const Container = styled.main`
   max-width: 500px;
@@ -54,7 +54,7 @@ const Button = styled.button`
 const Message = styled.p`
   margin-top: 1rem;
   font-weight: bold;
-  color: ${({ $success }) => ($success ? "green" : "red")};
+  color: red;
 `;
 
 export default function SignUpForm() {
@@ -67,7 +67,6 @@ export default function SignUpForm() {
   });
 
   const [message, setMessage] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -80,16 +79,16 @@ export default function SignUpForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axiosInstance.post("/members", formData);
-      const memberId = res.data.memberId; // ✅ 응답에서 ID 가져오기
-      setMessage("✅ 회원가입 성공!");
-      setIsSuccess(true);
+      const res = await signUp(formData);
+      const memberId = res.data.memberId;
 
-      navigate(`/members/${memberId}`);
+      localStorage.setItem("memberId", memberId);
+
+      // 바로 홈으로 이동
+      navigate("/home");
     } catch (err) {
-      setMessage("❌ 회원가입 실패!");
-      setIsSuccess(false);
       console.error(err);
+      setMessage("❌ 회원가입 실패! 다시 시도해주세요.");
     }
   };
 
@@ -155,7 +154,7 @@ export default function SignUpForm() {
         <Button type="submit">회원가입</Button>
       </Form>
 
-      {message && <Message $success={isSuccess}>{message}</Message>}
+      {message && <Message>{message}</Message>}
     </Container>
   );
 }

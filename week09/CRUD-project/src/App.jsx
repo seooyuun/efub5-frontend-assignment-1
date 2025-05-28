@@ -6,6 +6,8 @@ import MemberInfo from "./components/members/MemberInfo";
 import SignUp from "./pages/SignUp";
 import StartScreen from "./pages/StartScreen";
 import EditProfileForm from "./components/members/EditProfileForm";
+import Home from "./pages/Home";
+import Board from "./pages/Board";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/members/:memberId" element={<MemberInfo />} />
         <Route path="/members/:memberId/edit" element={<EditProfileForm />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/boards" element={<Board />} />
       </Routes>
     </Router>
   );
