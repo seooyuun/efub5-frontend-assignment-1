@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { createBoard } from "../../apis/board";
-import { useNavigate } from "react-router-dom";
 
 const Input = styled.input`
   margin-bottom: 1rem;
@@ -27,11 +26,16 @@ const Button = styled.button`
   padding: 0.6rem 1.2rem;
   width: 100%;
   background-color: ${({ variant }) =>
-    variant === "cancel" ? "#ccc" : "#3c82f6"};
+    variant === "cancel" ? "#ccc" : "#C7D9DD"};
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+
+  &:active {
+    background-color: #adb2d4;
+    border: none;
+  }
 `;
 
 const Container = styled.div`
@@ -47,7 +51,6 @@ export default function BoardModal({ onClose, onCreated }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [notice, setNotice] = useState("");
-  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +59,8 @@ export default function BoardModal({ onClose, onCreated }) {
       const res = await createBoard({ title, description, notice, ownerId });
       const boardId = res.data.boardId;
 
-      onCreated(boardId); // ✅ 등록 후 페이지 이동
+      localStorage.setItem("lastBoardId", boardId);
+      onCreated(); // 리스트 갱신
     } catch (err) {
       alert("❌ 생성 실패");
     }

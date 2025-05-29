@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: center;
     background-color: #f9f9f9;
-    color: #333;
+    color: #0B0C11;
   }
   a {
     text-decoration: none;

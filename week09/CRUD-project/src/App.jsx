@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Board from "./pages/Board";
 import BoardMain from "./pages/BoardMain";
 import BoardPosts from "./pages/BoardPosts";
+import Post from "./pages/Post";
+import PostMain from "./pages/PostMain";
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/boards" element={<Board />} />
         <Route path="/boards/:boardId" element={<BoardMain />} />
         <Route path="/boards/:boardId/posts" element={<BoardPosts />} />
+        <Route path="/posts" element={<Post />} />
+        <Route path="/posts/:postId" element={<PostMain />} />
       </Routes>
     </Router>
   );

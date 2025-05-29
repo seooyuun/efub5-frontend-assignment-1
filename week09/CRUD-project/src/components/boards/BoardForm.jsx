@@ -50,11 +50,6 @@ export default function BoardForm({ onSuccess }) {
     const rawId = localStorage.getItem("memberId");
     const ownerId = rawId !== null ? Number(rawId) : null;
 
-    if (!ownerId) {
-      alert("❌ 로그인 후 이용해주세요.");
-      return;
-    }
-
     try {
       await createBoard({ title, description, notice, ownerId });
       alert("✅ 게시판 생성 완료!");

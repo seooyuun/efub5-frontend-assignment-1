@@ -1,10 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { updateBoard, deleteBoard } from "../../apis/board";
+import axiosInstance from "../../apis/axiosInstance";
 
 const List = styled.ul`
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
   padding: 0;
+  list-style: none;
 `;
 
 const Item = styled.li`
@@ -29,6 +34,7 @@ const TitleButton = styled.button`
   font-size: 1rem;
   text-align: left;
   cursor: pointer;
+  color: black;
 
   &:hover {
     text-decoration: underline;
@@ -48,7 +54,7 @@ const ActionButton = styled.button`
   cursor: pointer;
 
   background-color: ${({ variant }) =>
-    variant === "edit" ? "#4caf50" : "#f44336"};
+    variant === "edit" ? "#c7d9dd" : "#D5E5D5"};
   color: white;
 
   &:hover {
@@ -56,23 +62,61 @@ const ActionButton = styled.button`
   }
 `;
 
-export default function BoardList({ boards, onSelect, onEdit, onDelete }) {
+export default function BoardList({ boards, setBoards }) {
+  const navigate = useNavigate();
+
+  const fetchBoards = async () => {
+    const temp = [];
+    const lastId = Number(localStorage.getItem("lastBoardId")) || 30;
+
+    for (let i = lastId; i >= 1; i--) {
+      try {
+        const res = await axiosInstance.get(`/boards/${i}`);
+        if (res.data) temp.push(res.data);
+      } catch (e) {
+        // 삭제된 게시판 무시
+      }
+    }
+
+    setBoards(temp.reverse()); // 다시 정방향 정렬
+  };
+
+  const handleEdit = async (board) => {
+    const newTitle = prompt("새 게시판 제목을 입력하세요", board.title);
+    if (!newTitle || newTitle === board.title) return;
+    try {
+      await updateBoard(board.boardId, { ...board, title: newTitle });
+      alert("✅ 수정 완료");
+      fetchBoards();
+    } catch (err) {
+      console.error("❌ 수정 실패", err);
+    }
+  };
+
+  const handleDelete = async (board) => {
+    if (!window.confirm("정말 이 게시판을 삭제하시겠습니까?")) return;
+    try {
+      await deleteBoard(board.boardId);
+      alert("✅ 삭제 완료");
+      fetchBoards();
+    } catch (err) {
+      console.error("❌ 삭제 실패", err);
+    }
+  };
+
   return (
     <List>
       {boards.map((board) => (
         <Item key={board.boardId}>
-          <TitleButton onClick={() => onSelect(board.boardId)}>
-            📌 {board.title}
+          <TitleButton onClick={() => navigate(`/boards/${board.boardId}`)}>
+            📌 {board.title || "제목 없음"}
           </TitleButton>
           <ButtonGroup>
-            <ActionButton variant="edit" onClick={() => onEdit(board)}>
-              ✏️ 수정
+            <ActionButton variant="edit" onClick={() => handleEdit(board)}>
+              수정
             </ActionButton>
-            <ActionButton
-              variant="delete"
-              onClick={() => onDelete(board.boardId)}
-            >
-              🗑 삭제
+            <ActionButton variant="delete" onClick={() => handleDelete(board)}>
+              삭제
             </ActionButton>
           </ButtonGroup>
         </Item>

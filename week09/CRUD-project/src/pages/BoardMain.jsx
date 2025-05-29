@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getBoard, updateBoard, deleteBoard } from "../apis/board";
-import { getPostsInBoard } from "../apis/board";
 
 const Container = styled.div`
-  max-width: 600px;
+  width: 600px;
   margin: 3rem auto;
   padding: 2rem;
   border: 1px solid #ccc;
   border-radius: 12px;
+  text-align: center;
 `;
 
 const Title = styled.h2`
@@ -37,7 +37,7 @@ const ActionButton = styled.button`
   cursor: pointer;
 
   background-color: ${({ variant }) =>
-    variant === "delete" ? "#f44336" : "#3c82f6"};
+    variant === "delete" ? "#D5E5D5" : "#C7D9DD"};
 
   &:hover {
     opacity: 0.9;
@@ -93,14 +93,16 @@ export default function BoardMain() {
       <Info>📌 공지사항: {board.notice}</Info>
 
       <ButtonGroup>
-        <ActionButton onClick={handleEdit}>✏️ 수정</ActionButton>
+        <ActionButton variant="edit" onClick={handleEdit}>
+          수정
+        </ActionButton>
         <ActionButton variant="delete" onClick={handleDelete}>
-          🗑 삭제
+          삭제
         </ActionButton>
         <ActionButton
           onClick={() => navigate(`/boards/${board.boardId}/posts`)}
         >
-          📋 게시글 확인
+          게시글 확인
         </ActionButton>
       </ButtonGroup>
     </Container>

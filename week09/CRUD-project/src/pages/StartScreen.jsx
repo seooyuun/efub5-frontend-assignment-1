@@ -13,16 +13,22 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 2.5rem;
   margin-bottom: 2rem;
+  color: #0b0c11;
 `;
 
 const Button = styled.button`
   padding: 1rem 2rem;
   font-size: 1.2rem;
-  background-color: #3c82f6;
+  background-color: #c7d9dd;
   color: white;
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  transition: background-color 0.2 ease;
+
+  &:hover {
+    background-color: #adb2d4;
+  }
 `;
 
 export default function StartScreen() {

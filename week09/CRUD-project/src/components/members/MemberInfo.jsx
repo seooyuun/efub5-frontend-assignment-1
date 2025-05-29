@@ -37,11 +37,11 @@ const Button = styled.button`
   ${({ variant }) =>
     variant === "edit"
       ? `
-    background-color: #3c82f6;
+    background-color: #C7D9DD;
     color: white;
   `
       : `
-    background-color: #f44336;
+    background-color: #ADB2D4;
     color: white;
   `}
 
@@ -113,7 +113,7 @@ export default function MemberInfo() {
       </ButtonGroup>
       <Button
         variant="edit"
-        style={{ marginTop: "2rem", backgroundColor: "#4caf50" }}
+        style={{ marginTop: "2rem", backgroundColor: "#D5E5D5" }}
         onClick={handleGoHome}
       >
         홈으로 가기

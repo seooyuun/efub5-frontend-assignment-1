@@ -32,12 +32,14 @@ const Card = styled.button`
   border-radius: 12px;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #333;
+  color: #0b0c11;
   cursor: pointer;
   background-color: #f8f9fa;
+  transition: background-color 0.2s;
 
   &:hover {
-    background-color: #e0e7ff;
+    background-color: rgba(199, 217, 221, 0.3);
+    border-color: #c7d9dd;
   }
 `;
 
@@ -53,6 +55,7 @@ export default function Home() {
       <Grid>
         <Card onClick={() => navigate("/boards")}>📋 게시판 보기</Card>
         <Card onClick={() => navigate(`/members/${memberId}`)}>👤 내 정보</Card>
+        <Card onClick={() => navigate("/posts")}>📄 게시글 전체 목록</Card>
       </Grid>
     </Container>
   );
