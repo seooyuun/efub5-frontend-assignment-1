@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../apis/member";
-
-const Container = styled.main`
-  max-width: 500px;
-  margin: 3rem auto;
-  padding: 2rem;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background-color: #fff;
-`;
+import PageTemplate from "../components/common/PageTemplate";
 
 const Title = styled.h2`
   text-align: center;
@@ -20,6 +12,7 @@ const Title = styled.h2`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  width: 50%;
 `;
 
 const Label = styled.label`
@@ -95,7 +88,7 @@ export default function SignUp() {
   };
 
   return (
-    <Container>
+    <PageTemplate>
       <Title>회원가입</Title>
       <Form onSubmit={handleSubmit}>
         <Label>
@@ -157,6 +150,6 @@ export default function SignUp() {
       </Form>
 
       {message && <Message>{message}</Message>}
-    </Container>
+    </PageTemplate>
   );
 }

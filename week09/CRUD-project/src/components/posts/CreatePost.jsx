@@ -24,10 +24,6 @@ const TextArea = styled.textarea`
   resize: vertical;
 `;
 
-const CheckboxLabel = styled.label`
-  margin: 0.5rem 0;
-`;
-
 const Button = styled.button`
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
@@ -100,7 +96,7 @@ export default function CreatePost({ onSuccess }) {
   return (
     <Form onSubmit={handleSubmit}>
       <Input
-        placeholder="게시판 제목 (예: 공지사항)"
+        placeholder="게시판 제목"
         value={boardTitle}
         onChange={(e) => setBoardTitle(e.target.value)}
         required
@@ -118,14 +114,6 @@ export default function CreatePost({ onSuccess }) {
         onChange={(e) => setContent(e.target.value)}
         required
       />
-      <CheckboxLabel>
-        <input
-          type="checkbox"
-          checked={anonymous}
-          onChange={(e) => setAnonymous(e.target.checked)}
-        />
-        익명으로 작성
-      </CheckboxLabel>
       <Button type="submit">작성하기</Button>
     </Form>
   );

@@ -3,11 +3,7 @@ import styled from "styled-components";
 import BoardList from "../components/boards/BoardList";
 import BoardModal from "../components/boards/BoardModal";
 import axiosInstance from "../apis/axiosInstance";
-
-const Container = styled.div`
-  margin: 3rem auto;
-  padding: 2rem;
-`;
+import PageTemplate from "../components/common/PageTemplate";
 
 const Title = styled.h2`
   text-align: center;
@@ -81,7 +77,7 @@ export default function Board() {
   };
 
   return (
-    <Container>
+    <PageTemplate>
       <Title>게시판</Title>
       <Button onClick={handleOpenModal}>➕ 새 게시판 만들기</Button>
       <BoardList boards={boards} setBoards={setBoards} />
@@ -94,6 +90,6 @@ export default function Board() {
           />
         </Overlay>
       )}
-    </Container>
+    </PageTemplate>
   );
 }

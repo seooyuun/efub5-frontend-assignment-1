@@ -109,7 +109,7 @@ export default function BoardList({ boards, setBoards }) {
       {boards.map((board) => (
         <Item key={board.boardId}>
           <TitleButton onClick={() => navigate(`/boards/${board.boardId}`)}>
-            📌 {board.title || "제목 없음"}
+            {board.title || "제목 없음"}
           </TitleButton>
           <ButtonGroup>
             <ActionButton variant="edit" onClick={() => handleEdit(board)}>

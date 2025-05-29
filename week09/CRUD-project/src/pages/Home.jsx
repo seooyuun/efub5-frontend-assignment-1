@@ -1,12 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-const Container = styled.div`
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
-`;
+import PageTemplate from "../components/common/PageTemplate";
 
 const Title = styled.h2`
   text-align: center;
@@ -49,7 +44,7 @@ export default function Home() {
   const nickname = localStorage.getItem("nickname");
 
   return (
-    <Container>
+    <PageTemplate>
       <Title>🏠 홈</Title>
       <Welcome>반가워요, {nickname}님! 😊</Welcome>
       <Grid>
@@ -57,6 +52,6 @@ export default function Home() {
         <Card onClick={() => navigate(`/members/${memberId}`)}>👤 내 정보</Card>
         <Card onClick={() => navigate("/posts")}>📄 게시글 전체 목록</Card>
       </Grid>
-    </Container>
+    </PageTemplate>
   );
 }

@@ -4,11 +4,18 @@ import styled from "styled-components";
 import axiosInstance from "../apis/axiosInstance";
 
 const Container = styled.div`
-  width: 600px;
-  margin: 2rem auto;
+  width: 700px;
+  max-width: 960px;
+  min-height: 40vh;
+  margin: 3rem auto;
   padding: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.h2`
@@ -22,8 +29,9 @@ const Content = styled.p`
 
 const ButtonGroup = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   gap: 0.5rem;
+  width: 100%;
 `;
 
 const Button = styled.button`
@@ -117,7 +125,7 @@ export default function PostMain() {
     }
   };
 
-  if (!post) return <Container>⏳ 로딩 중...</Container>;
+  if (!post) return <Container>⏳ 게시글 로딩 중...</Container>;
 
   return (
     <Container>
@@ -130,7 +138,7 @@ export default function PostMain() {
           삭제
         </Button>
         <Button variant="heart" onClick={hearted ? handleUnheart : handleHeart}>
-          {hearted ? "💔 좋아요 취소" : "💗 좋아요"}
+          {hearted ? "💔" : "💗"}
         </Button>
       </ButtonGroup>
     </Container>

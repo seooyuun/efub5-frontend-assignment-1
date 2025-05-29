@@ -2,18 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getPostsInBoard, getBoard } from "../apis/board";
-
-const Container = styled.div`
-  width: 600px;
-  margin: 3rem auto;
-  padding: 2rem;
-`;
+import PageTemplate from "../components/common/PageTemplate";
 
 const Header = styled.div`
   margin-bottom: 2rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
   text-align: center;
+  width: 500px;
 `;
 
 const Title = styled.h2`
@@ -37,6 +33,7 @@ const PostItem = styled.li`
   border: 1px solid #ddd;
   border-radius: 8px;
   margin: 1rem;
+  width: 230px;
 `;
 
 const Button = styled.button`
@@ -47,6 +44,7 @@ const Button = styled.button`
   color: white;
   border: none;
   border-radius: 8px;
+  width: 250px;
   cursor: pointer;
 `;
 
@@ -71,10 +69,10 @@ export default function BoardPosts() {
     fetchBoard();
   }, [boardId]);
 
-  if (!board) return <Container>⏳ 게시판 로딩 중...</Container>;
+  if (!board) return <PageTemplate>⏳ 게시판 로딩 중...</PageTemplate>;
 
   return (
-    <Container>
+    <PageTemplate>
       <Header>
         <Title>{board.title}</Title>
         <Info>📄 설명: {board.description || "없음"}</Info>
@@ -96,6 +94,6 @@ export default function BoardPosts() {
           </PostItem>
         ))}
       </PostList>
-    </Container>
+    </PageTemplate>
   );
 }

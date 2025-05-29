@@ -34,7 +34,7 @@ const Input = styled.input`
 const Button = styled.button`
   margin-top: 1.5rem;
   padding: 0.8rem;
-  background-color: #3c82f6;
+  background-color: #c7d9dd;
   color: white;
   font-size: 1rem;
   border: none;
@@ -42,7 +42,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #265ddc;
+    background-color: #adb2d4;
   }
 `;
 

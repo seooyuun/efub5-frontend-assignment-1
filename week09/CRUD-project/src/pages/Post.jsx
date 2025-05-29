@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CreatePost from "../components/posts/CreatePost";
 import axiosInstance from "../apis/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import PageTemplate from "../components/common/PageTemplate";
 
 const Container = styled.div`
   max-width: 800px;
@@ -20,6 +21,7 @@ const PostItem = styled.div`
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
+  width: 90%;
 `;
 
 const Meta = styled.small`
@@ -44,7 +46,7 @@ export default function Post() {
   }, []);
 
   return (
-    <Container>
+    <PageTemplate>
       <Title>📝 게시글 작성</Title>
       <CreatePost onSuccess={fetchPosts} />
 
@@ -66,6 +68,6 @@ export default function Post() {
           </PostItem>
         ))
       )}
-    </Container>
+    </PageTemplate>
   );
 }
