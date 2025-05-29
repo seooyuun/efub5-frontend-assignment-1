@@ -52,11 +52,11 @@ export default function Board() {
         const res = await axiosInstance.get(`/boards/${i}`);
         if (res.data) temp.push(res.data);
       } catch (e) {
-        // 삭제된 게시판 무시
+        // 삭제된 게시판 제외
       }
     }
 
-    setBoards(temp.reverse()); // 다시 정방향 정렬
+    setBoards(temp.reverse());
   };
 
   useEffect(() => {
@@ -72,8 +72,8 @@ export default function Board() {
   };
 
   const handleCreateSuccess = () => {
-    setShowModal(false); // 모달 닫고
-    fetchBoards(); // ✅ 게시판 목록 새로고침
+    setShowModal(false);
+    fetchBoards(); // 게시판 목록 새로고침
   };
 
   return (

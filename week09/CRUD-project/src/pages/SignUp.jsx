@@ -79,7 +79,7 @@ export default function SignUp() {
       localStorage.setItem("memberId", memberId);
       localStorage.setItem("nickname", nickname);
 
-      // 바로 홈으로 이동
+      // 회원가입 후 Home으로 이동
       navigate("/home");
     } catch (err) {
       console.error(err);

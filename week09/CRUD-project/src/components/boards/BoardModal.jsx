@@ -60,7 +60,7 @@ export default function BoardModal({ onClose, onCreated }) {
       const boardId = res.data.boardId;
 
       localStorage.setItem("lastBoardId", boardId);
-      onCreated(); // 리스트 갱신
+      onCreated(); // 갱신
     } catch (err) {
       alert("❌ 생성 실패");
     }

@@ -56,7 +56,7 @@ export default function Post() {
             <strong>{post.title}</strong>
             <p>{post.content}</p>
             <Meta>
-              작성자: {post.anonymous ? "익명" : post.member.nickname} <br />
+              작성자: {post.member.nickname} <br />
               게시판: {post.board.title}
             </Meta>
           </PostItem>

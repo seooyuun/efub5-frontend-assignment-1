@@ -69,7 +69,7 @@ export default function BoardPosts() {
     fetchBoard();
   }, [boardId]);
 
-  if (!board) return <PageTemplate>⏳ 게시판 로딩 중...</PageTemplate>;
+  if (!board) return <PageTemplate>⏳ 로딩 중...</PageTemplate>;
 
   return (
     <PageTemplate>
@@ -88,9 +88,7 @@ export default function BoardPosts() {
           >
             <strong>{post.title}</strong>
             <p>{post.content}</p>
-            <small>
-              작성자: {post.anonymous ? "익명" : post.member.nickname}
-            </small>
+            <small>작성자: {post.member.nickname}</small>
           </PostItem>
         ))}
       </PostList>

@@ -24,7 +24,7 @@ const Button = styled.button`
   line-height: 48px;
   padding: 0;
   text-align: center;
-  background-color: #3c82f6;
+  background-color: #c7d9dd;
   color: white;
   border: none;
   border-radius: 8px;
@@ -32,7 +32,7 @@ const Button = styled.button`
   white-space: nowrap;
 
   &:hover {
-    background-color: #265ddc;
+    background-color: #adb2d4;
   }
 `;
 
@@ -56,7 +56,7 @@ export default function BoardForm({ onSuccess }) {
       setTitle("");
       setDescription("");
       setNotice("");
-      if (onSuccess) onSuccess(); // 목록 새로고침 콜백
+      if (onSuccess) onSuccess(); // 목록 새로고침
     } catch (err) {
       console.error("❌ 게시판 생성 실패", err);
       alert("게시판 생성에 실패했습니다.");

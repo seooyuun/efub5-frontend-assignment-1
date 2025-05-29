@@ -36,7 +36,7 @@ export default function StartScreen() {
 
   return (
     <Container>
-      <Title>CRUD 프로젝트</Title>
+      <Title>💞</Title>
       <Button onClick={() => navigate("/signup")}>회원가입</Button>
     </Container>
   );

@@ -74,11 +74,11 @@ export default function BoardList({ boards, setBoards }) {
         const res = await axiosInstance.get(`/boards/${i}`);
         if (res.data) temp.push(res.data);
       } catch (e) {
-        // 삭제된 게시판 무시
+        // 삭제된 게시판 제외
       }
     }
 
-    setBoards(temp.reverse()); // 다시 정방향 정렬
+    setBoards(temp.reverse());
   };
 
   const handleEdit = async (board) => {
