@@ -5,12 +5,6 @@ import axiosInstance from "../apis/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import PageTemplate from "../components/common/PageTemplate";
 
-const Container = styled.div`
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
-`;
-
 const Title = styled.h2`
   text-align: center;
   margin-bottom: 2rem;

@@ -44,19 +44,24 @@ export default function CreatePost({ onSuccess }) {
   const [anonymous, setAnonymous] = useState(false);
   const [boardTitle, setBoardTitle] = useState("");
   const [boardList, setBoardList] = useState([]); // 모든 게시판 정보 저장용
+  const [loading, setLoading] = useState(true); // 🔹 로딩 상태
 
   useEffect(() => {
     const fetchBoards = async () => {
       const temp = [];
-      for (let i = 1; i <= 30; i++) {
+      const lastId = Number(localStorage.getItem("lastBoardId")) || 30;
+
+      for (let i = lastId; i >= 1; i--) {
         try {
           const res = await axiosInstance.get(`/boards/${i}`);
           if (res.data) temp.push(res.data);
         } catch (e) {
-          // 무시
+          // 삭제된 게시판 무시
         }
       }
-      setBoardList(temp); // [{ boardId: 1, title: '공지사항' }, ...]
+
+      setBoardList(temp.reverse());
+      setLoading(false);
     };
 
     fetchBoards();
@@ -64,8 +69,16 @@ export default function CreatePost({ onSuccess }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (boardList.length === 0) {
+      alert("게시판 목록을 불러오는 중입니다.");
+      return;
+    }
+
     const writerId = Number(localStorage.getItem("memberId"));
-    const matched = boardList.find((b) => b.title === boardTitle);
+    const matched = boardList.find(
+      (b) => b.title.trim().toLowerCase() === boardTitle.trim().toLowerCase()
+    );
 
     if (!matched) {
       alert("❌ 존재하지 않는 게시판입니다.");

@@ -8,13 +8,6 @@ const Title = styled.h2`
   margin-bottom: 2rem;
 `;
 
-const Welcome = styled.p`
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-`;
-
 const Grid = styled.div`
   display: grid;
   gap: 1.5rem;
@@ -45,8 +38,7 @@ export default function Home() {
 
   return (
     <PageTemplate>
-      <Title>🏠 홈</Title>
-      <Welcome>반가워요, {nickname}님! 😊</Welcome>
+      <Title>🏠 {nickname}의 홈 🏠</Title>
       <Grid>
         <Card onClick={() => navigate("/boards")}>📋 게시판 보기</Card>
         <Card onClick={() => navigate(`/members/${memberId}`)}>👤 내 정보</Card>

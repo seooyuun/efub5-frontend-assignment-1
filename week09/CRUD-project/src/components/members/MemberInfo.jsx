@@ -102,10 +102,10 @@ export default function MemberInfo() {
     <Container>
       <Title>👤 회원 정보</Title>
       <Info>📧 이메일: {member.email}</Info>
-      <Info>🧑‍🎓 닉네임: {member.nickname}</Info>
+      <Info>😊 닉네임: {member.nickname}</Info>
       <Info>🏫 대학교: {member.university}</Info>
       <Info>🎓 학번: {member.studentId}</Info>
-      <Info>📌 상태: {member.status}</Info>
+      <Info>🔥 상태: {member.status}</Info>
       <Info>🕒 가입일: {new Date(member.createdDate).toLocaleString()}</Info>
 
       <ButtonGroup>
