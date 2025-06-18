@@ -24,6 +24,7 @@ const ButtonGroup = styled.div`
   button {
     margin-right: 8px;
     background-color: #eee;
+    color: #555;
   }
 `;
 

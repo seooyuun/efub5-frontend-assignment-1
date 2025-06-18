@@ -112,10 +112,10 @@ function BookForm({
       </FormGroup>
 
       <ReviewWrapper>
-        <Label>한줄평:</Label>
+        <Label>리뷰:</Label>
         <Textarea
           rows="3"
-          placeholder="이 책에 대해 간단히 남겨보세요"
+          placeholder="이 책에 대한 리뷰를 남겨주세요."
           value={review}
           onChange={onChangeReview}
         />

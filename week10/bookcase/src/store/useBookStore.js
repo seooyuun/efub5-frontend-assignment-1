@@ -10,6 +10,7 @@ const useBookStore = create(
           books: [],
           selectedBookId: null,
 
+          // 새 책 추가
           addBook: (book) =>
             set((state) => ({
               books: [
@@ -24,11 +25,13 @@ const useBookStore = create(
               ],
             })),
 
+          // 책 삭제
           deleteBook: (id) =>
             set((state) => ({
               books: state.books.filter((b) => b.id !== id),
             })),
 
+          // 책 정보 수정
           updateBook: (id, updated) =>
             set((state) => ({
               books: state.books.map((b) =>
@@ -36,6 +39,7 @@ const useBookStore = create(
               ),
             })),
 
+          // 책 상태 수정
           updateStatus: (id, nextStatus) =>
             set((state) => ({
               books: state.books.map((b) =>
