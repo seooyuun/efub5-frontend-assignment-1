@@ -34,24 +34,46 @@ function BookForm({
   title,
   author,
   image,
+  status,
+  rating,
   onChangeTitle,
   onChangeAuthor,
   onChangeImage,
+  onChangeStatus,
+  onChangeRating,
   onSubmit,
   buttonLabel,
 }) {
   return (
     <Form onSubmit={onSubmit}>
       <div>
-        <Label>제목:</Label>
+        <Label>제목: </Label>
         <Input value={title} onChange={onChangeTitle} />
       </div>
       <div>
-        <Label>저자:</Label>
+        <Label>저자: </Label>
         <Input value={author} onChange={onChangeAuthor} />
       </div>
       <div>
-        <Label>책 이미지:</Label>
+        <Label>읽기 상태: </Label>
+        <select value={status} onChange={onChangeStatus}>
+          <option value="읽고 싶은 책">읽고 싶은 책</option>
+          <option value="읽고 있는 책">읽고 있는 책</option>
+          <option value="읽은 책">읽은 책</option>
+        </select>
+      </div>
+      <div>
+        <Label>별점: </Label>
+        <select value={rating} onChange={onChangeRating}>
+          <option value={1}>⭐</option>
+          <option value={2}>⭐⭐</option>
+          <option value={3}>⭐⭐⭐</option>
+          <option value={4}>⭐⭐⭐⭐</option>
+          <option value={5}>⭐⭐⭐⭐⭐</option>
+        </select>
+      </div>
+      <div>
+        <Label>책 이미지: </Label>
         <input type="file" accept="image/*" onChange={onChangeImage} />
         {image && (
           <img

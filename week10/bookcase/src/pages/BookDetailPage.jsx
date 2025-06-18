@@ -4,16 +4,25 @@ import useBookStore from "../store/useBookStore";
 import styled from "styled-components";
 
 const Container = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   margin: 2rem auto;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: 8px;
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+`;
+
+const InfoSection = styled.div`
+  flex: 1;
+`;
+
 const Image = styled.img`
-  margin-top: 1rem;
   width: 200px;
   border-radius: 8px;
 `;
@@ -44,14 +53,21 @@ function BookDetailPage() {
 
   return (
     <Container>
-      <h2>{book.title}</h2>
-      <p>
-        <strong>저자:</strong> {book.author}
-      </p>
-      <p>
-        <strong>읽음 여부:</strong> {book.read ? "✅ 읽음" : "❌ 미읽음"}
-      </p>
-      {book.imageUrl && <Image src={book.imageUrl} alt="책 이미지" />}
+      <ContentWrapper>
+        <InfoSection>
+          <h2>{book.title}</h2>
+          <p>
+            <strong>저자:</strong> {book.author}
+          </p>
+          <p>
+            <strong>상태:</strong> {book.status}
+          </p>
+          <p>
+            <strong>별점:</strong> {"⭐".repeat(book.rating)}
+          </p>
+        </InfoSection>
+        {book.imageUrl && <Image src={book.imageUrl} alt="책 이미지" />}
+      </ContentWrapper>
       <BackButton onClick={() => navigate("/books")}>
         ← 목록으로 돌아가기
       </BackButton>
