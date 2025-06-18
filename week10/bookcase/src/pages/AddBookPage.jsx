@@ -14,6 +14,7 @@ function AddBookPage() {
 
   const [imageUrl, setImageUrl] = useState("");
   const [rating, setRating] = useState(3);
+  const [review, setReview] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -30,7 +31,7 @@ function AddBookPage() {
     e.preventDefault();
     if (!title || !author) return alert("모든 필드를 입력해주세요!");
 
-    addBook({ title, author, status, imageUrl, rating });
+    addBook({ title, author, status, rating, imageUrl, review });
     navigate("/books");
   };
 
@@ -43,11 +44,13 @@ function AddBookPage() {
         image={imageUrl}
         status={status}
         rating={rating}
+        review={review}
         onChangeTitle={(e) => setTitle(e.target.value)}
         onChangeAuthor={(e) => setAuthor(e.target.value)}
         onChangeImage={handleImageChange}
         onChangeStatus={(e) => setStatus(e.target.value)}
         onChangeRating={(e) => setRating(Number(e.target.value))}
+        onChangeReview={(e) => setReview(e.target.value)}
         onSubmit={handleSubmit}
         buttonLabel="추가하기"
       />

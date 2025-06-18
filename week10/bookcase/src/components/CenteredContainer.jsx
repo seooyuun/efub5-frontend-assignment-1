@@ -7,7 +7,7 @@ const CenteredContainer = styled.div`
   justify-content: center;
   min-height: 40vh;
   max-width: 50vh;
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding: 2rem;
   border-radius: 8px;
   background-color: #ffffff;

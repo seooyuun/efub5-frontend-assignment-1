@@ -16,6 +16,7 @@ function EditBookPage() {
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState("읽고 싶은 책");
   const [rating, setRating] = useState(3);
+  const [review, setReview] = useState("");
 
   useEffect(() => {
     const foundBook = books.find((b) => b.id === bookId);
@@ -25,6 +26,7 @@ function EditBookPage() {
       setImageUrl(foundBook.imageUrl || "");
       setStatus(foundBook.status || "읽고 싶은 책");
       setRating(foundBook.rating || 3);
+      setReview(foundBook.review || "");
       setLoaded(true);
     }
   }, [books, bookId]);
@@ -33,7 +35,7 @@ function EditBookPage() {
     e.preventDefault();
     if (!title || !author) return alert("모든 필드를 입력해주세요!");
 
-    updateBook(bookId, { title, author, imageUrl, status, rating });
+    updateBook(bookId, { title, author, imageUrl, status, rating, review });
     navigate("/books");
   };
 
@@ -59,11 +61,13 @@ function EditBookPage() {
         image={imageUrl}
         status={status}
         rating={rating}
+        review={review}
         onChangeTitle={(e) => setTitle(e.target.value)}
         onChangeAuthor={(e) => setAuthor(e.target.value)}
         onChangeImage={handleImageChange}
         onChangeStatus={(e) => setStatus(e.target.value)}
         onChangeRating={(e) => setRating(Number(e.target.value))}
+        onChangeReview={(e) => setReview(e.target.value)}
         onSubmit={handleSubmit}
         buttonLabel="수정하기"
       />

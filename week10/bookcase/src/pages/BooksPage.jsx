@@ -14,16 +14,16 @@ const Title = styled.h2`
 `;
 
 const AddButton = styled.button`
-  margin-bottom: 1rem;
+  margin-bottom: none;
   padding: 8px 12px;
-  background-color: #2ecc71;
+  background-color: #90c8e9;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #27ae60;
+    background-color: #62b1de;
   }
 `;
 
@@ -38,7 +38,7 @@ function BooksPage() {
 
   return (
     <Container>
-      <Title>📚 내 책장</Title>
+      <Title>🚪 내 책장</Title>
       <AddButton onClick={() => navigate("/add")}>+ 새 책 추가</AddButton>
       <ul>
         {books.map((book) => (

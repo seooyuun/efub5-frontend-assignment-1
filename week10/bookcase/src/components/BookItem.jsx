@@ -16,12 +16,6 @@ const Info = styled.div`
 
 const Status = styled.span`
   margin-left: 10px;
-  color: ${({ $status }) =>
-    $status === "읽은 책"
-      ? "green"
-      : $status === "읽고 있는 책"
-      ? "orange"
-      : "blue"};
 `;
 
 const ButtonGroup = styled.div`
@@ -29,6 +23,7 @@ const ButtonGroup = styled.div`
 
   button {
     margin-right: 8px;
+    background-color: #eee;
   }
 `;
 
@@ -37,6 +32,17 @@ const getNextStatus = (current) => {
   if (current === "읽고 있는 책") return "읽은 책";
   return "읽고 싶은 책";
 };
+
+const getStatusIcon = (status) => {
+  if (status === "읽은 책") return "🚩";
+  if (status === "읽고 있는 책") return "📖";
+  return "💖"; // 읽고 싶은 책
+};
+
+const Rating = styled.div`
+  margin-top: 4px;
+  font-size: 16px;
+`;
 
 function BookItem({ book, onDelete, onEdit }) {
   const navigate = useNavigate();
@@ -52,12 +58,25 @@ function BookItem({ book, onDelete, onEdit }) {
     <Item onClick={() => navigate(`/books/${book.id}`)}>
       <Info>
         {book.title} - {book.author}
-        <Status $status={book.status}>📌 {book.status}</Status>
+        <Status>
+          {getStatusIcon(book.status)} {book.status}
+        </Status>
       </Info>
+      <Rating>{"⭐".repeat(book.rating)}</Rating>
+
       <ButtonGroup onClick={(e) => e.stopPropagation()}>
         <button onClick={handleStatusChange}>상태 변경</button>
         <button onClick={() => onEdit(book.id)}>수정</button>
-        <button onClick={() => onDelete(book.id)}>삭제</button>
+        <button
+          onClick={() => {
+            const confirmed = window.confirm("이 책을 삭제하시겠습니까?");
+            if (confirmed) {
+              onDelete(book.id);
+            }
+          }}
+        >
+          삭제
+        </button>
       </ButtonGroup>
     </Item>
   );

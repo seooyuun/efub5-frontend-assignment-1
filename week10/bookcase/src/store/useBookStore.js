@@ -16,6 +16,7 @@ const useBookStore = create(
               ...book,
               status: book.status || "읽고 싶은 책",
               rating: book.rating || 3,
+              review: book.review || "",
             },
           ],
         })),

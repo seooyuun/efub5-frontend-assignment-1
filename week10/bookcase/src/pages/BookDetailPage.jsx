@@ -30,14 +30,14 @@ const Image = styled.img`
 const BackButton = styled.button`
   margin-top: 2rem;
   padding: 8px 12px;
-  background-color: #bdc3c7;
+  background-color: #bbb;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 
   &:hover {
-    background-color: #95a5a6;
+    background-color: #999;
   }
 `;
 
@@ -64,6 +64,9 @@ function BookDetailPage() {
           </p>
           <p>
             <strong>별점:</strong> {"⭐".repeat(book.rating)}
+          </p>
+          <p>
+            <strong>리뷰:</strong> {book.review || "작성된 리뷰가 없습니다."}
           </p>
         </InfoSection>
         {book.imageUrl && <Image src={book.imageUrl} alt="책 이미지" />}
