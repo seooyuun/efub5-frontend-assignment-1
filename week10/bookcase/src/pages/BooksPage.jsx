@@ -15,6 +15,7 @@ const Title = styled.h2`
 
 const AddButton = styled.button`
   margin-bottom: none;
+  font-size: 15px;
   padding: 8px 12px;
   background-color: #90c8e9;
   color: white;
