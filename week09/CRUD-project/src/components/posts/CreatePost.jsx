@@ -43,8 +43,8 @@ export default function CreatePost({ onSuccess }) {
   const [content, setContent] = useState("");
   const [anonymous, setAnonymous] = useState(false);
   const [boardTitle, setBoardTitle] = useState("");
-  const [boardList, setBoardList] = useState([]); // 모든 게시판 정보 저장용
-  const [loading, setLoading] = useState(true); // 🔹 로딩 상태
+  const [boardList, setBoardList] = useState([]); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchBoards = async () => {
@@ -100,7 +100,7 @@ export default function CreatePost({ onSuccess }) {
       setContent("");
       setAnonymous(false);
       setBoardTitle("");
-      onSuccess(); // 새로고침
+      onSuccess();
     } catch (err) {
       alert("❌ 게시글 작성 실패");
     }
